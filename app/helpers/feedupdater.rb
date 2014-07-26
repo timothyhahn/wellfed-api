@@ -30,7 +30,7 @@ module Wellfed
           self.update_item(feed, item)
         end
 
-        feed.latest_title = FeedItem.all.first.title
+        feed.latest_title = feed.feed_items.first.title
         feed.save
       end
 

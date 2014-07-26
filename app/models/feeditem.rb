@@ -1,13 +1,17 @@
-module Wellfed 
+module Wellfed
   module Models
     class FeedItem
       include MongoMapper::Document
       key :title,   String
-      key :summary, String
+      key :description, String
       key :content, String
-      key :read,    Boolean
+      key :unread,    Boolean
       key :url,     String
       belongs_to :feeds
+      def unread?
+        puts 'hi'
+        :unread
+      end
     end
   end
 end

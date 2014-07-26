@@ -1,5 +1,6 @@
-module Wellfed 
+module Wellfed
   module Models
+    # Categorization for Feeds
     class Category
       include MongoMapper::Document
       key :name,      String

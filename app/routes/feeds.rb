@@ -8,7 +8,7 @@ module Wellfed
       post '/feeds/?' do
         title = params[:title]
         url = params[:url]
-        Feed.create(:title => title, :url => url, :updated_at => Time.now)
+        feed = Feed.create(:title => title, :url => url, :updated_at => Time.now, :latest_title => "!UNMINED!")
       end
 
       delete '/feeds/?' do

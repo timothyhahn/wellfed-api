@@ -6,7 +6,7 @@ module Wellfed
       end
       # All Feeds
       get '/feeds/?' do
-        Feed.all.to_json(:methods => [:unread_feed_items, :total_feed_items])
+        Feed.all.to_json(:methods => [:unread_feed_item_count, :total_feed_item_count])
       end
 
       post '/feeds/?' do

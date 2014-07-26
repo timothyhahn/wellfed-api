@@ -36,8 +36,10 @@ module Wellfed
 
     # Other routes:
     use Routes::Feeds
+    use Routes::FeedItems
   end
 end
 
 include Wellfed::Models
+include Wellfed::Helpers
 

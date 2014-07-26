@@ -3,7 +3,7 @@ module Wellfed
     class Feeds < Sinatra::Application
       # All Feeds
       get '/feeds/?' do
-        Feed.all().to_json()
+        Feed.all.to_json()
       end
 
       post '/feeds/?' do

@@ -4,5 +4,6 @@ module Wellfed
 
     # Other routes:
     autoload :Feeds, 'app/routes/feeds'
+    autoload :FeedItems, 'app/routes/feeditems'
   end
 end

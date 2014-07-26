@@ -1,6 +1,9 @@
 module Wellfed
   module Routes
     class Feeds < Sinatra::Application
+      get '/update/?' do
+        FeedUpdater.update_all
+      end
       # All Feeds
       get '/feeds/?' do
         Feed.all.to_json(:methods => [:unread_feed_items, :total_feed_items])

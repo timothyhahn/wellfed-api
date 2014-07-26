@@ -38,6 +38,7 @@ module Wellfed
         feeds = Feed.all
         puts "Parsing #{feeds.length} feeds"
         feeds.each { |feed| self.update_feed(feed) }
+        "Finished"
       end
     end
   end

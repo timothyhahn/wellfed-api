@@ -1,6 +1,6 @@
 module Wellfed
   module Models
     # Other models:
-    # autoload :Post, 'app/models/post'
+     autoload :Feeds, 'app/models/feeds'
   end
 end

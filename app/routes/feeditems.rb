@@ -28,7 +28,7 @@ module Wellfed
         FeedItem.all(:id => feed_item_id).first.to_json
       end
 
-      put '/feeditems/:feed_item_id' do
+      post '/feeditems/:feed_item_id' do
         feed_item_id = params[:feed_item_id]
         feed_item = FeedItem.update(feed_item_id,
                                     :unread => false,

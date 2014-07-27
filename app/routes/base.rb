@@ -13,7 +13,8 @@ module Wellfed
       end
       before do
         content_type :json    
-        headers 'Access-Control-Allow-Origin' => '*'
+        headers 'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST', 'PUT', 'DELETE']
       end
 
       helpers Helpers

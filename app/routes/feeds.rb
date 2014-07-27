@@ -25,13 +25,13 @@ module Wellfed
       # Specific Feed
       get '/feeds/:feed_id' do
         feed_id = params[:feed_id]
-        Feed.all(:id => feed_id).to_json(:include => [:feed_items],
+        Feed.all(:id => feed_id).first.to_json(:include => [:feed_items],
                                          :methods => [:unread_feed_item_count,
                                                       :total_feed_item_count])
       end
       get '/feeds/:feed_id/unread/?' do
         feed_id = params[:feed_id]
-        Feed.all(:id => feed_id).to_json(:methods => [:unread_feed_items,
+        Feed.all(:id => feed_id).first.to_json(:methods => [:unread_feed_items,
                                                      :unread_feed_item_count,
                                                      :total_feed_item_count])
       end

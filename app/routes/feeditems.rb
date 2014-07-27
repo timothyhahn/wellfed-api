@@ -25,7 +25,7 @@ module Wellfed
       # Specific Feed
       get '/feeditems/:feed_item_id' do
         feed_item_id = params[:feed_item_id]
-        FeedItem.all(:id => feed_item_id).to_json
+        FeedItem.all(:id => feed_item_id).first.to_json
       end
 
       put '/feeditems/:feed_item_id' do

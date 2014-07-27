@@ -1,6 +1,6 @@
 module Wellfed
   module Routes
-    class Feeds < Sinatra::Application
+    class Feeds < Base
       get '/update/?' do
         FeedUpdater.update_all
       end

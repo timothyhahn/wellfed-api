@@ -1,7 +1,7 @@
 module Wellfed
   module Routes
     # Representation of an item belonging to a Feed
-    class FeedItems < Sinatra::Application
+    class FeedItems < Base
       # All Feeds
       get '/feeditems/?' do
         FeedItem.all.to_json

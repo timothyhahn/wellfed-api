@@ -11,9 +11,12 @@ module Wellfed
 
         enable :use_code
       end
+      before do
+        content_type :json    
+        headers 'Access-Control-Allow-Origin' => '*'
+      end
 
       helpers Helpers
-      helpers Sinatra::ContentFor
     end
   end
 end

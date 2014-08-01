@@ -23,12 +23,21 @@ module Wellfed
       end
 
       get '/feeds/all/?' do
-        Feed.all.to_json(:include => [:feed_items],
-                         :methods => [:unread_feed_item_count,
-                                     :total_feed_item_count])
+        all_feed_items = Feed.all.map{|feed| feed.feed_items}.flatten
+        feed_items = all_feed_items.map{|feed_item| {:title => feed_item.title,
+                                                     :unread => feed_item.unread,
+                                                     :content => feed_item.content,
+                                                     :description => feed_item.description,
+                                                     :url => feed_item.url,
+                                                     :id => feed_item.id}}
+        all_feeds = {:title => "All",
+                     :unread_feed_item_count => all_feed_items.length,
+                     :total_feed_item_count => all_feed_items.length,
+                     :feed_items => feed_items}
 
         ## Get all unread feed_items from feeds,
         ## Organize bysome timestamp
+        JSON.generate(all_feeds)
       end
 
       # Specific Feed

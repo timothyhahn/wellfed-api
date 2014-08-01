@@ -22,18 +22,28 @@ module Wellfed
         Feed.delete_all.to_json
       end
 
+      get '/feeds/all/?' do
+        Feed.all.to_json(:include => [:feed_items],
+                         :methods => [:unread_feed_item_count,
+                                     :total_feed_item_count])
+
+        ## Get all unread feed_items from feeds,
+        ## Organize bysome timestamp
+      end
+
       # Specific Feed
       get '/feeds/:feed_id' do
         feed_id = params[:feed_id]
         Feed.all(:id => feed_id).first.to_json(:include => [:feed_items],
-                                         :methods => [:unread_feed_item_count,
-                                                      :total_feed_item_count])
+                                               :methods => [:unread_feed_item_count,
+                                                            :total_feed_item_count])
       end
+
       get '/feeds/:feed_id/unread/?' do
         feed_id = params[:feed_id]
         Feed.all(:id => feed_id).first.to_json(:methods => [:unread_feed_items,
-                                                     :unread_feed_item_count,
-                                                     :total_feed_item_count])
+                                                            :unread_feed_item_count,
+                                                            :total_feed_item_count])
       end
 
 
